@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: your-github-username/your-repo-name # Replace with your real GitHub details
+  branch: main
+
+media_folder: "public/images/uploads" # Folder where uploaded images go in your code
+public_folder: "/images/uploads" # The web address path to load those images
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog" # Change this path to match where your markdown files live
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
